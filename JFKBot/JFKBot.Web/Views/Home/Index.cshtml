@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "J. Edgar Hoover Bot";
+}
+
+<link href="~/Content/botchat.css" rel="stylesheet" />
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .row {
+        display: flex;
+        height: 767px;
+    }
+    
+    /* Create two equal columns that sits next to each other */
+    .column-left {
+        flex: 60%;
+    }
+
+    .column-right {
+        flex: 40%;
+        background-image: url("/Images/title_hoover_side.jpg");
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+    }
+
+    @@media screen and (max-width: 479px) {
+
+        .row {
+            height: 550px;
+        }
+        
+        .column-left {
+            flex: 100%;
+        }
+
+        .column-right {
+            flex: 0%;
+        }
+    }
+
+    #BotChat {
+        border: 0px;
+        background-color: #FFF;
+        float: left;
+        height: 100%;
+        position: relative;
+        width: 100%;
+    }
+</style>
+
+<div class="row">
+    <div class="column-left" id="BotChat"></div>
+    <div class="column-right"></div>
+</div>
+
+<script src="~/Scripts/botchat.js"></script>
+<script src="~/Scripts/CognitiveServices.js"></script>
+
+<script>
+    const params = BotChat.queryParams(location.search);
+
+    var userid = 'userid';
+    var audio = params['a'];
+
+    if (audio) {
+        userid = '$options?';
+
+        if (audio) {
+            userid = userid.concat('&audio=').concat(audio);
+        }
+    }
+
+    const user = {
+        id: params['userid'] || userid,
+        name: params['username'] || 'You'
+    };
+
+    const bot = {
+        id: params['botid'] || '@System.Configuration.ConfigurationManager.AppSettings["BotId"]',
+        name: params['botname'] || 'J. Edgar Hoover'
+    };
+
+    const speechOptions = {
+        speechRecognizer: new CognitiveServices.SpeechRecognizer({ subscriptionKey: '@System.Configuration.ConfigurationManager.AppSettings["CustomSpeechSubscriptionKey"]' }),
+        speechSynthesizer: new CognitiveServices.SpeechSynthesizer({
+            gender: CognitiveServices.SynthesisGender.Male,
+            subscriptionKey: '@System.Configuration.ConfigurationManager.AppSettings["CustomVoiceSubscriptionKey"]',
+            voiceName: 'Hoover reviewed Adapt'
+        })
+    };
+
+    BotChat.App({
+        bot: bot,
+        locale: params['locale'],
+        resize: 'detect',
+        // sendTyping: true,    // defaults to false. set to true to send 'typing' activities to bot (and other users) when user is typing
+        speechOptions: speechOptions,
+        user: user,
+        chatTitle: 'Ask J. Edgar Hoover',
+        directLine: {
+            secret: '@System.Configuration.ConfigurationManager.AppSettings["BotSecret"]'
+        }
+    }, document.getElementById('BotChat'));
+</script>

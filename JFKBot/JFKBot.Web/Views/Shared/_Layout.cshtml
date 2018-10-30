@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JFK Files - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style='background: #202926'>
+    <div>
+        <center>
+            <img id="title" src="~/Images/jfk_title.png" style="max-height: 125px; max-width: 95%; height: auto; width: auto;">
+        </center>
+    </div>
+    <div class="container body-content" style="max-width: 1024px; width: 95%; margin-top: 2em;">
+        @RenderBody()
+    </div>
+    <div>
+        <center>
+            <img id="footer" src="~/Images/jfk_footer.png" style="max-height: 25px; max-width: 85%; height: auto; width: auto; margin-top: 2em;">
+        </center>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

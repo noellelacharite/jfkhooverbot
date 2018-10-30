@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JFKBot.App", "JFKBot.App\JFKBot.App.csproj", "{69D4C200-7EE2-47B8-9826-02221A7BBA7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JFKBot.Web", "JFKBot.Web\JFKBot.Web.csproj", "{2EEF3E22-355E-4817-9725-2BCA9AC57E79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69D4C200-7EE2-47B8-9826-02221A7BBA7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69D4C200-7EE2-47B8-9826-02221A7BBA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69D4C200-7EE2-47B8-9826-02221A7BBA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69D4C200-7EE2-47B8-9826-02221A7BBA7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EEF3E22-355E-4817-9725-2BCA9AC57E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EEF3E22-355E-4817-9725-2BCA9AC57E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EEF3E22-355E-4817-9725-2BCA9AC57E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EEF3E22-355E-4817-9725-2BCA9AC57E79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F908F511-B173-4A1F-ABDD-01E4781A69A3}
+	EndGlobalSection
+EndGlobal
